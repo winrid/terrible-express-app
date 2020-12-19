@@ -1,0 +1,10 @@
+{
+  "name": "yes",
+  "description": "",
+  "dependencies": {
+    "express": "^5.0.0-alpha.8"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
