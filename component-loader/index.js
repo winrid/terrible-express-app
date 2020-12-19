@@ -1,8 +1,8 @@
 function load(name) {
     try {
-        global[name] = require(name);
+        return global[name] = require(name);
     } catch(e) {
-        global[name] = require(require('path').join(__dirname, '..', name));
+        return global[name] = require(require('path').join(__dirname, '..', name));
     }
 }
 

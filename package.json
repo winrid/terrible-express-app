@@ -2,9 +2,10 @@
   "name": "yes",
   "description": "",
   "dependencies": {
-    "express": "^5.0.0-alpha.8"
+    "express": "^5.0.0-alpha.8",
+    "ejs": "^3.1.5"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node START.js"
   }
 }

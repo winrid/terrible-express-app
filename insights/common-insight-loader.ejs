@@ -1,0 +1,21 @@
+<div id="target"></div>
+<script>
+    let counter = 0;
+
+    async function loadNext() {
+        const response = await (await fetch('<%= url %>?count=' + counter)).json();
+        document.getElementById('target').innerHTML = response.content;
+        if (!response.isDone) {
+            counter++;
+            setTimeout(loadNext, Math.random() * 150);
+        } else {
+            var scriptElm = document.createElement('script');
+            scriptElm.src = 'https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js';
+            document.body.appendChild(scriptElm);
+        }
+    }
+
+    (function () {
+        loadNext();
+    })();
+</script>

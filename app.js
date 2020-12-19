@@ -2,14 +2,21 @@ const { load } = require('./component-loader');
 load('component-loader');
 
 load('express');
+load('ejs');
 const app = express();
 
-app.set('views', require('path').join(__dirname, 'views'));
+app.set('views', require('path').join(__dirname, 'insights'));
 app.set('view engine', 'ejs');
 
 app.use(express.static(require('path').join(__dirname, 'public'))); // OPTIMIZATION This is here so we don't log the requests, which is slow.
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+
+app.get('/', function(req, res) {
+  res.render('index.ejs');
+});
+
+app.use(load('components/root.js'));
 
 var debug = require('debug')('terrible-express-app:server');
 let http = require('http');

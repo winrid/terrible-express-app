@@ -1,0 +1,10 @@
+<h1>Loading BIG IMPORTANT Enterprise App v666.1</h1>
+<div ng-app="">
+  <p>New Important Task : <input type="text" ng-model="name"></p>
+  <h1>Next task is {{name}}</h1>
+  <button ng-click="items.push(name)" ng-init="items=[]">add a very important task someone else should do</button>
+  <h2>Important Tasks:</h2>
+  <div ng-repeat="item in items track by $index">
+    <h3 ng-bind="item"></h3>
+  </div>
+</div>
